@@ -1,6 +1,6 @@
 //! src/main.rs
 //!
-//! This is the main entry point for the `chatbot-rs` application.
+//! This is the main entry point for the `ai-rs` application.
 //! Its responsibilities are:
 //! 1. Declaring the module hierarchy to the Rust compiler.
 //! 2. Initializing the configuration by loading the API key.
@@ -15,6 +15,7 @@ mod config;
 mod error;
 mod openai;
 
+// The `Error` type is not used directly, so it can be removed from the import.
 use crate::error::Result;
 use colored::Colorize;
 use openai::Client;
@@ -31,12 +32,13 @@ async fn main() -> Result<()> {
     // Create a new OpenAI client with the loaded key.
     let client = Client::new(api_key);
 
-    // Start the command-line interface. The `if let Err(...)` block
-    // provides a clean way to handle and display any errors that
-    // bubble up from the `cli::run` function.
+    // Start the command-line interface. If an error occurs, print it
+    // and then propagate the error out of `main`.
     if let Err(e) = cli::run(client).await {
         // Use the `colored` crate to make the error message stand out.
         eprintln!("{} {}", "Error:".red().bold(), e);
+        // Return the error to ensure the process exits with a non-zero status code.
+        return Err(e);
     }
 
     // Return Ok(()) to indicate successful execution.
