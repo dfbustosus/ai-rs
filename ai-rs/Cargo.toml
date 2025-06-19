@@ -1,0 +1,20 @@
+[package]
+name = "ai-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+
+# We explicitly disable the default features (which include openssl)
+# and enable the rustls-tls-native-roots feature instead.
+# This uses the pure-Rust rustls library for TLS and will find root certificates on the system.
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls-native-roots"] }
+
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+dotenvy = "0.15"
+thiserror = "1.0"
+colored = "2.1"
