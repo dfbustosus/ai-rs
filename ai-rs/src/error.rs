@@ -3,7 +3,6 @@
 //! This module defines the unified error type for the entire application.
 //! By using a single, comprehensive error enum, we can handle all possible
 //! failure scenarios in a consistent and predictable manner. The `thiserror`
-
 //! crate is leveraged to reduce boilerplate when implementing the error type.
 
 use thiserror::Error;
@@ -22,7 +21,8 @@ pub enum Error {
     /// A wrapper for errors that occur during I/O operations.
     /// The `#[from]` attribute allows for automatic conversion from `std::io::Error`
     /// into `Error::Io`, simplifying error handling at call sites.
-    #[error("IO error")]
+    /// The `{0}` includes the underlying error message in the output.
+    #[error("IO error: {0}")]
     Io(#[from] std::io::Error),
 
     /// A wrapper for errors originating from the `reqwest` HTTP client.
