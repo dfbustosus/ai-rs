@@ -65,6 +65,7 @@ impl Client {
             .json(&body)
             .send()
             .await? // The '?' operator propagates errors from reqwest
+            .error_for_status()? // Ensure non-successful HTTP responses are caught
             .json()
             .await?; // The '?' operator propagates errors from JSON parsing
 
