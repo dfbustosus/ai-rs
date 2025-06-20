@@ -1,0 +1,30 @@
+[package]
+name = "rust-analyzer-ai"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+
+# For pure-Rust TLS, avoiding C-library dependencies (best practice).
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls-native-roots"] }
+
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+dotenvy = "0.15"
+thiserror = "1.0"
+colored = "2.1"
+
+# A powerful, feature-rich command-line argument parser.
+# This is essential for creating a user-friendly CLI tool.
+clap = { version = "4.5", features = ["derive"] }
+
+# The definitive crate for parsing Rust source code into an
+# Abstract Syntax Tree (AST). This is the core of our analysis engine.
+syn = { version = "2.0", features = ["full", "extra-traits"] }
+
+# A fast and convenient crate for recursively walking directory trees,
+# which we will use to discover .rs files in a project.
+walkdir = "2"
