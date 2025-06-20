@@ -1003,6 +1003,8 @@ dependencies = [
  "clap",
  "colored",
  "dotenvy",
+ "once_cell",
+ "regex",
  "reqwest",
  "serde",
  "serde_json",

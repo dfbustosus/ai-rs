@@ -9,12 +9,10 @@ edition = "2021"
 # The core asynchronous runtime.
 tokio = { version = "1", features = ["full"] }
 
-# The HTTP client, configured to use a pure-Rust TLS implementation for security
-# and to avoid C-library dependencies.
+# The HTTP client, configured to use a pure-Rust TLS implementation.
 reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
 
 # The standard for serialization and deserialization in Rust.
-# `serde_json` is used for handling JSON data, which we will use for our configuration.
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
@@ -27,11 +25,15 @@ thiserror = "1.0"
 # A powerful, feature-rich command-line argument parser.
 clap = { version = "4.5", features = ["derive"] }
 
-# A modern, structured logging framework. `tracing` provides the core API,
-# and `tracing-subscriber` provides the tools to process and display the logs.
+# A modern, structured logging framework.
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
-# For adding color to terminal output, improving user experience.
+# For adding color to terminal output.
 colored = "2.1"
 
+# The standard Rust crate for regular expressions.
+regex = "1"
+
+# For one-time initialization of static values, like our compiled regex.
+once_cell = "1"
