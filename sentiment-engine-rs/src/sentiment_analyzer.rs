@@ -6,8 +6,16 @@
 use crate::config::SentimentConfig;
 use crate::error::{Error, Result};
 use crate::openai_client::OpenAIClient;
+use once_cell::sync::Lazy;
+use regex::Regex;
 use serde::Deserialize;
 use tracing::info;
+
+/// A lazily-compiled regular expression to robustly extract a JSON object
+/// from within a Markdown code block.
+/// The `(?s)` flag allows `.` to match newlines.
+static JSON_EXTRACTOR: Lazy<Regex> =
+    Lazy::new(|| Regex::new(r"(?s)```(?:json)?\s*(\{.*\})\s*```").unwrap());
 
 /// The main analyzer struct, holding the necessary components for analysis.
 pub struct SentimentAnalyzer {
@@ -31,9 +39,8 @@ impl SentimentAnalyzer {
 
     /// Analyzes the provided text to determine its sentiment.
     ///
-    /// This function builds a detailed prompt using the "Chain of Thought"
-    /// methodology, sends it to the OpenAI API, and parses the resulting
-    /// JSON object into an `AnalysisResult`.
+    /// This function builds a detailed prompt, sends it to the OpenAI API,
+    /// and parses the resulting JSON object into an `AnalysisResult`.
     ///
     /// # Arguments
     ///
@@ -53,15 +60,15 @@ impl SentimentAnalyzer {
         let response_text = self.client.send_request(prompt).await?;
         info!(response = %response_text, "Received response from API.");
 
-        // Parse the JSON response from the AI.
-        // We trim the response text to handle potential leading/trailing whitespace
-        // or code block fences from the model.
-        let trimmed_response = response_text
-            .trim()
-            .trim_start_matches("```json")
-            .trim_end_matches("```");
+        // Use the robust regex-based method to extract the JSON payload.
+        // If the regex does not find a match, or if the AI simply returns raw JSON,
+        // we fall back to parsing the raw text.
+        let json_text = JSON_EXTRACTOR
+            .captures(&response_text)
+            .and_then(|caps| caps.get(1).map(|m| m.as_str()))
+            .unwrap_or(&response_text);
 
-        serde_json::from_str(trimmed_response).map_err(|e| {
+        serde_json::from_str(json_text.trim()).map_err(|e| {
             Error::InvalidResponseFormat(format!(
                 "Failed to parse JSON response: {}. Response text: '{}'",
                 e, response_text
