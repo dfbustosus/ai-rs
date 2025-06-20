@@ -1,0 +1,25 @@
+{
+    "labels": [
+      {
+        "name": "Positive",
+        "description": "The text expresses a clearly positive, happy, or favorable sentiment."
+      },
+      {
+        "name": "Negative",
+        "description": "The text expresses a clearly negative, unhappy, or unfavorable sentiment."
+      },
+      {
+        "name": "Neutral",
+        "description": "The text is objective, factual, or does not express a strong emotion."
+      },
+      {
+        "name": "Inquisitive",
+        "description": "The text is primarily asking a question or expressing curiosity."
+      },
+      {
+        "name": "Urgent",
+        "description": "The text conveys a sense of urgency, requiring immediate attention or action."
+      }
+    ]
+  }
+  
