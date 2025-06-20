@@ -17,7 +17,7 @@
 
 ## ✨ What Makes This Special?
 
-This isn't just another code repository—it's a **curated showcase** of how Rust and AI can work together to create robust, production-ready applications. Each project demonstrates professional software engineering principles while solving real-world problems.
+This isn't just another code repository—it's a **curated showcase** of how Rust and AI can work together to create robust, production-ready applications. Each project solve real-world problems.
 
 ```rust
 // Zero compromises. Production-ready from day one.
@@ -86,8 +86,8 @@ fn main() {
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ai-powered-rust-masterclass.git
-cd ai-powered-rust-masterclass
+git clone git@github.com:dfbustosus/ai-rs.git
+cd ai-rs
 
 # Pick your adventure
 cd chatbot-rs        # Start here for beginners
