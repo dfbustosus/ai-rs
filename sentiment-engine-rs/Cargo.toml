@@ -1,0 +1,37 @@
+[package]
+name = "sentiment-engine-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# The core asynchronous runtime.
+tokio = { version = "1", features = ["full"] }
+
+# The HTTP client, configured to use a pure-Rust TLS implementation for security
+# and to avoid C-library dependencies.
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+# The standard for serialization and deserialization in Rust.
+# `serde_json` is used for handling JSON data, which we will use for our configuration.
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# For loading the .env file securely.
+dotenvy = "0.15"
+
+# A crate for creating clean, boilerplate-free custom error types.
+thiserror = "1.0"
+
+# A powerful, feature-rich command-line argument parser.
+clap = { version = "4.5", features = ["derive"] }
+
+# A modern, structured logging framework. `tracing` provides the core API,
+# and `tracing-subscriber` provides the tools to process and display the logs.
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# For adding color to terminal output, improving user experience.
+colored = "2.1"
+
