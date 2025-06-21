@@ -23,7 +23,7 @@ use tracing::{error, info};
 /// Defines the command-line arguments for the application.
 #[derive(Parser, Debug)]
 #[command(
-    author = "Your Name",
+    author = "David BU",
     version,
     about = "An AI-powered tool to automatically generate architectural diagrams from Rust code."
 )]

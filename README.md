@@ -65,8 +65,22 @@ fn main() {
 │  ├─ ⚙️ JSON-configurable rules
 │  └─ 📊 Professional logging
 ```
-
 **What you'll learn:** Explainable AI patterns, configuration-driven design, observability
+
+---
+
+### 📝 Conversation Distiller
+*Transform conversations into purpose-driven summaries*
+
+```bash
+┌─ 📝 Summary Generation
+│  ├─ 📝 Purpose-driven synthesis
+│  ├─ ⚙️ JSON-configurable rules
+│  └─ 📊 Professional logging
+└─ 📋 Output formatting
+```
+
+**What you'll learn:** Purpose-driven synthesis, configuration-driven design, observability
 
 ---
 
@@ -82,6 +96,8 @@ fn main() {
 
 **What you'll learn:** Codebase analysis, prompt engineering, architectural visualization
 
+---
+
 ## 🚀 Quick Start
 
 ```bash
@@ -94,6 +110,7 @@ cd chatbot-rs        # Start here for beginners
 cd rust-analyzer-ai  # For AST manipulation
 cd sentiment-engine-rs # For explainable AI
 cd rust-architect-ai # For architecture visualization
+cd conversation-distiller-rs # For conversation distillation
 
 # Follow individual README instructions
 cargo build --release
@@ -137,12 +154,14 @@ graph LR
     B --> C[🔍 Code Analyzer]
     C --> D[🎭 Sentiment Engine]
     D --> E[🏗️ Architecture Tool]
+    E --> F[📝 Conversation Distiller]
     
     style A fill:#ff6b6b
     style B fill:#4ecdc4
     style C fill:#45b7d1
     style D fill:#96ceb4
     style E fill:#feca57
+    style F fill:#4ecdc4
 ```
 
 **Beginner** → **Intermediate** → **Advanced** → **Expert**
