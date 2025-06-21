@@ -22,7 +22,7 @@ use tracing::{error, info};
 /// `clap` uses this struct to generate help messages and parse input.
 #[derive(Parser, Debug)]
 #[command(
-    author = "Your Name",
+    author = "David BU",
     version,
     about = "An explainable sentiment analysis engine powered by AI."
 )]
