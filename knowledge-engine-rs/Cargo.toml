@@ -1,0 +1,53 @@
+[package]
+name = "knowledge-engine-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# Core async runtime
+tokio = { version = "1", features = ["full"] }
+
+# HTTP client with pure-Rust TLS
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+# Serialization/deserialization framework
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Securely load environment variables
+dotenvy = "0.15"
+
+# Boilerplate-free custom error types
+thiserror = "1.0"
+
+# Powerful command-line argument parsing
+clap = { version = "4.5", features = ["derive", "string"] }
+
+# Structured logging framework
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Asynchronous SQL toolkit
+sqlx = { version = "0.7", features = ["sqlite", "runtime-tokio", "macros"] }
+
+# For advanced text processing and chunking
+text-splitter = "0.3"
+
+# For colored terminal output
+colored = "2.1"
+
+# For efficient recursive directory traversal
+walkdir = "2"
+
+# For calculating SHA256 hashes to track file changes
+sha2 = "0.10"
+
+# For extracting text content from PDF files.
+pdf-extract = "0.7"
+
+# We explicitly pin this transient dependency to a version that does not
+# require the 2024 edition, ensuring compatibility with a wider range of
+# Rust toolchains.
+base64ct = "=1.6.0"
