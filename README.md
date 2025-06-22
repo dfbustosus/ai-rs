@@ -98,6 +98,22 @@ fn main() {
 
 ---
 
+### 🧭 Knowledge Engine
+*Ingest and query documents with AI-powered insights*
+
+```bash
+┌─ 🧭 Knowledge Engine
+│  ├─ 📝 Document Ingestion
+│  ├─ 📝 Purpose-driven synthesis
+│  ├─ ⚙️ JSON-configurable rules
+│  └─ 📊 Professional logging
+└─ 📋 Output formatting
+```
+
+**What you'll learn:** Document ingestion, purpose-driven synthesis, configuration-driven design, observability
+
+---
+
 ## 🚀 Quick Start
 
 ```bash
@@ -111,6 +127,7 @@ cd rust-analyzer-ai  # For AST manipulation
 cd sentiment-engine-rs # For explainable AI
 cd rust-architect-ai # For architecture visualization
 cd conversation-distiller-rs # For conversation distillation
+cd knowledge-engine-rs # For knowledge ingestion and querying
 
 # Follow individual README instructions
 cargo build --release
@@ -155,6 +172,7 @@ graph LR
     C --> D[🎭 Sentiment Engine]
     D --> E[🏗️ Architecture Tool]
     E --> F[📝 Conversation Distiller]
+    F --> G[🧭 Knowledge Engine]
     
     style A fill:#ff6b6b
     style B fill:#4ecdc4
@@ -162,6 +180,7 @@ graph LR
     style D fill:#96ceb4
     style E fill:#feca57
     style F fill:#4ecdc4
+    style G fill:#4ecdc4
 ```
 
 **Beginner** → **Intermediate** → **Advanced** → **Expert**
