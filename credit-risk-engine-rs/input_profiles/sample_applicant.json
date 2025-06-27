@@ -1,0 +1,14 @@
+{
+    "applicantId": "APP-12345",
+    "age": 35,
+    "monthlyIncome": 5500,
+    "monthlyDebt": 1200,
+    "employmentStatus": "Employed",
+    "yearsInCurrentJob": 5,
+    "creditScore": 680,
+    "loanAmount": 25000,
+    "loanPurpose": "Debt Consolidation",
+    "hasPreviousDefaults": false,
+    "additionalNotes": "Applicant has a stable employment history with a reputable company. They are looking to consolidate two high-interest credit card debts into a single, lower-interest loan."
+  }
+  
