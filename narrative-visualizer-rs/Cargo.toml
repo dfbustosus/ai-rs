@@ -1,0 +1,40 @@
+[package]
+name = "narrative-visualizer-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# Core async runtime
+tokio = { version = "1", features = ["full"] }
+
+# HTTP client with pure-Rust TLS for security
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+# The standard for serialization and deserialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Securely load environment variables
+dotenvy = "0.15"
+
+# Boilerplate-free custom error types
+thiserror = "1.0"
+
+# Powerful command-line argument parsing
+clap = { version = "4.5", features = ["derive"] }
+
+# Structured logging framework
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# For handling image data, which we will receive from the API
+base64 = "0.22"
+
+# For colored terminal output
+colored = "2.1"
+
+# For robustly parsing AI responses
+regex = "1"
+once_cell = "1"
